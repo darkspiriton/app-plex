@@ -32,9 +32,9 @@ services:
       - UMASK=002
       - TZ=America/Lima
     volumes:
-      - ${STORAGE}/plex:/root/Library/Application Support/Plex Media Server
+      - ${STORAGE}/piserver/plex:/root/Library/Application Support/Plex Media Server
       - ${STORAGE}/media:/media
-      - ${STORAGE}/tmp:/tmp
+      - ${STORAGE}/piserver/tmp:/tmp
     restart: unless-stopped
     network_mode: "host" # Solo funciona en Linux
 
