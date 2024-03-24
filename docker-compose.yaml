@@ -2,21 +2,6 @@ version: "3.7"
 
 services:
 
-#  samba:
-#    image: dperson/samba # no hay tag con versiones, solo latest
-#    restart: always
-#    command: '-u "pi;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
-#    stdin_open: true
-#    tty: true
-#    environment:
-#      - TZ=America/Argentina/Mendoza
-#    ports:
-#      - 139:139
-#      - 445:445
-#    volumes:
-#      - ${MEDIA}:/media
-#      - ${STORAGE}/torrents:/downloads
-
   plex:
     container_name: app-plex
     image: jaymoulin/plex:1.30.1.6562
@@ -51,22 +36,5 @@ services:
       - TZ=America/Lima
     volumes:
       - ./torrent:/config
-#      - /srv/dev-disk-by-uuid-c3882d46-3188-4a24-aca8-d273ea0b46b9/nasty/descargas/torrent:/downloads
       - ${STORAGE}/downloads/torrents:/downloads
     restart: always
-
-#  flexget:
-#    image: wiserain/flexget:3.5
-#    volumes:
-#      - ./flexget:/config
-#      - ./flexget/custom-cont-init.d:/custom-cont-init.d
-#      - ${STORAGE}/downloads/torrents:/downloads
-#      - ${MEDIA}:/storage
-#    ports:
-#      - 5050:5050
-#    environment:
-#      - PUID=1001
-#      - PGID=1001
-#      - TORRENT_PLUGIN=transmission
-#      - FG_WEBUI_PASSWD=p3l4d0_N3RD # la puedes cambiar por la que quieras
-#    restart: unless-stopped
